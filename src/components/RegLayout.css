@@ -1,0 +1,40 @@
+.formContainer{
+    width: 500px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px, 40px;
+    margin-left: 20%;
+  }
+  form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  input{
+    margin-top: 20px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #cfcfcf;
+    margin-left: 25px;
+    width: 400px;
+    margin-bottom: 10px;
+  }
+  h1{
+    
+      text-align: center;
+      color: teal;
+     
+  }
+.butName{
+    margin-left: 1150px;
+}
+.errorMsg {
+  color: #cc0000;
+  margin-bottom: 12px;
+}
+.button{
+  background-color: green;
+  color: white;
+}

@@ -1,0 +1,71 @@
+
+.LoginPg{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./login.svg);
+    background-repeat: no-repeat;
+    background-size: 30%;
+  }
+  .form-container{
+    margin-top: 150px;
+    width: 500px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px, 40px;
+    box-shadow: 5px 5px 3px 0px #dcdcdc;
+    background-color: aliceblue;
+    margin-left: 400px;
+  }
+  form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h1{
+    text-align: center;
+    width: 100%;
+    columns: black;
+    font-weight: lighter;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  input{
+    padding: 15px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #cfcfcf;
+    margin-left: 25px;
+    width: 400px;
+    margin-bottom: 15px;
+  }
+  input.error{
+    border: 1px solid red;
+  }
+  .errorMessage{
+    color: red;
+    font-size: smaller;
+    display: relative;
+    margin-left: 25px;
+    margin-bottom: 2px;
+  }
+  .Email{
+    width: 79%;
+    align-items: center;
+  }
+  .Login{
+    width: 400px;
+    margin-left: 35px;
+  }
+  button{
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+  }
+  button:hover {
+    color: black;
+  }

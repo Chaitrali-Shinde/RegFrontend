@@ -1,0 +1,9 @@
+
+.Regcontainer{
+    background-color: rgb(247, 241, 241);
+    width: 100%;
+    height: 100%;
+    max-width: 430px;
+    margin: auto;
+    margin-top: 50px;
+}

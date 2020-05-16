@@ -1,43 +1,27 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import './LoginPg.css';
 
-
-//check if the form is empty or not if empty then sends valid as false
-const formValid= ({formErrors, ...rest})=>
-{
-  let valid= true;
-
-  Object.values(formErrors).forEach(val=> {
-    val.length> 0 && (valid= false);
-  });
-
-  Object.values(rest).forEach(val=> {
-    val ==null && (valid= false);
-  });
-   
-  return valid;
-}
 
 class LoginPg extends React.Component {
 
   constructor(props){
     super();
     this.state={
-      Email: null,
-      password: null,
-      formErrors: {
-        Email: "",
-        password: ""
-      }
+      username: "",
+      password: ""
     };
   }
 
   //when the form is submitted then checks valid or not
   handleSubmit = e =>{
     e.preventDefault();
-
-    if(formValid(this.state))
+    var data= {
+      username: this.state.username,
+      password: this.state.password
+    }
+    console.log({data});
+    if(this.state.username.length>3 || this.state.password.length>3)
     {
       console.log('Valid data');
     }
@@ -46,67 +30,35 @@ class LoginPg extends React.Component {
     }
   };
 
-  //accepts only valid inputs 
-  handleChange = e=> {
-    e.preventDefault();
-    const {name, value}= e.target;
-    let formErrors= this.state.formErrors;
-
-    switch(name)
-    {
-      case "Email": 
-        formErrors.Email= 
-        value.length < 3 && value.length > 0 ? "Email address can't be so short" : "";
-        break;
-      
-      case "password":
-        formErrors.password= 
-        value.length < 6 && value.length > 0 ? "password should contain minimum 6 letters": "";
-        break;
-        default:
-          break;
-    }
-
-    this.setState({ formErrors, [name]: value}, ()=> console.log(this.state))
-  };
-
 
   render(){
 
-    const { formErrors}= this.state;
     return (
       <div className="App">
       <div className= "form-container">
         <h1>Sign In</h1>
-        <form onSubmit= {this.handleSubmit} onValidate>
-        <div className= "Email">
+        <form onSubmit= {this.handleSubmit} method= "post">
+        <div className= "name">
             <input
-              type= "email"
-              placeholder= "Enter your email"
-              name= "Email"
-              onValidate
-              onChange= {this.handleChange}            
-            />
+              type= "text"
+              placeholder= "Enter your username"
+              name= "username"
+              onChange= {(event)=>{this.setState({username:event.target.value})}}/>          
           </div>
-          {formErrors.Email.length>0 && (
-  <span className= "errorMessage">{formErrors.Email}</span>
-          )}
               <div className= "password">
               <input
                 type= "password"
                 placeholder= "Enter your password"
                 name= "password"
-                onValidate
-                onChange= {this.handleChange}            
-              />
+                onChange= {(event)=>{this.setState({password:event.target.value})}}/>
             </div>
-            {formErrors.password.length>5 && (
-  <span className= "errorMessage">{formErrors.password}</span>
-          )}
             <div className="Login">
             <button type= "submit">Login</button>
               <Link to= "/registrationPg">
               <small> Register</small>
+            </Link>
+            <Link to= "/ForgrotPassword">
+              <small> Forgot password</small>
             </Link>
             </div>
         </form>

@@ -32,16 +32,18 @@ class RegistrationPg extends React.Component{
 
                 console.log(data);
 
-                axios.post('localhost:8081/security/addUser', {data})
+                axios.post('http://localhost:8081/security/addUser', data=data)
                 .then(function (response) {
 
                     console.log(response.data);
-                    window.location = "/retrieve" //This line of code will redirect you once the submission is succeed
-                })                    
+                    //window.location = "/login" //This line of code will redirect you once the submission is succeed
+                })   
+                if(this.resetForm){
+                    console.log("true");
+                }    
         }
     }
     validateForm() {
-
         let errors = {};
         
         let formIsValid = true;
@@ -99,6 +101,19 @@ class RegistrationPg extends React.Component{
         return formIsValid;
         
         }
+
+
+        resetForm = () => {
+            this.setState(
+                {
+                    username: "",
+                    password: "",
+                    email: ""
+                }
+            )
+            return true;
+        }
+
     render(){
         return(
             <div>
